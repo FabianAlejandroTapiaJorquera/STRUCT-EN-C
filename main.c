@@ -35,6 +35,26 @@ void mostrarComida(comida *x){
     printf("Nombre: %s\nCalorias: %i\nGramos: %i",x->tipo, x->calorias, x->gramos);
 }
 
+// 4)
+typedef struct Persona{
+    char nombre[15], apellido[15];
+    int edad;
+}familia;
+
+void llenarFamilia(familia *x){
+    printf("Nombre: ");
+    scanf("%s", &x->nombre);
+    printf("\nApellido: ");
+    scanf("%s", &x->apellido);
+    printf("\nEdad: ");
+    scanf("%i", &x->edad);
+    printf("\n\n");
+}
+
+void mostrarFamilia(familia *x){
+    printf("%s %s, %i anios\n",x->nombre, x->apellido, x->edad);
+}
+
 int main(){
     printf("Persona 1\n\n");
     printf("Nombre: %s\nEdad: %i\nPeso: %.2f\nEstatura: %.2f\n\n",persona1.nombre, persona1.edad, persona1.peso, persona1.estatura);
@@ -49,5 +69,13 @@ int main(){
     comida salchicha;
     llenarComida(&salchicha);
     mostrarComida(&salchicha);
+
+    familia familiaPerez[5];
+    for(int i=0; i<5; i++){
+        llenarFamilia(&familiaPerez[i]);
+    }
+    for(int j=0; j<5; j++){
+        mostrarFamilia(&familiaPerez[j]);
+    }
     return 0;
 }
